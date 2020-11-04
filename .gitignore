@@ -7,6 +7,13 @@ target/
 ### STS ###
 .apt_generated
 .classpath
+/target/
+/.classpath
+/.springBeans
+/.project
+/.settings/
+/build/
+
 .factorypath
 .project
 .settings
