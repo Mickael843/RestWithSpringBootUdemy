@@ -1,5 +1,6 @@
 package com.mikkaeru.application.controller.person;
 
+import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.OK;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
@@ -51,9 +52,10 @@ public class PersonController {
 		return ResponseEntity.ok(personOptional.get().convertToDTO());
 	}
 	
+	@ResponseStatus(code = CREATED)
 	@PostMapping(value = "", consumes = APPLICATION_JSON_VALUE)
-	public ResponseEntity<PersonDTO> create(@RequestBody PersonDTO person) {
-		return ResponseEntity.ok(personService.create(person.convertToEntity()).convertToDTO());
+	public PersonDTO create(@RequestBody PersonDTO person) {
+		return personService.create(person.convertToEntity()).convertToDTO();
 	}
 	
 	@PutMapping(value = "/{id}", consumes = APPLICATION_JSON_VALUE)
