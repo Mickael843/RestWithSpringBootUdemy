@@ -1,19 +1,30 @@
 package com.mikkaeru.application.tdo;
 
+import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
+
 import java.io.Serializable;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.hateoas.RepresentationModel;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.mikkaeru.application.domain.model.Person;
 
-public class PersonDTO implements Serializable {
+@JsonInclude(NON_NULL)
+@JsonPropertyOrder({"id", "firstName", "lastName", "gender", "address"})
+public class PersonDTO extends RepresentationModel<PersonDTO> implements Serializable {
 
 	private static final long serialVersionUID = -9012887630991340613L;
 
 	private Long id;
+	
 	private String firstName;
+	
 	private String lastName;
+	
 	private String address;
+	
 	private String gender;
 	
 	public Long getId() {
