@@ -5,7 +5,6 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 import java.io.Serializable;
 
 import org.modelmapper.ModelMapper;
-import org.springframework.hateoas.RepresentationModel;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -13,7 +12,7 @@ import com.mikkaeru.application.domain.model.Person;
 
 @JsonInclude(NON_NULL)
 @JsonPropertyOrder({"id", "firstName", "lastName", "gender", "address"})
-public class PersonDTO extends RepresentationModel<PersonDTO> implements Serializable {
+public class PersonDTO implements Serializable {
 
 	private static final long serialVersionUID = -9012887630991340613L;
 
